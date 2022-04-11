@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Montrer-cacher en jQuery</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){     
+			/*===Accordéon===*/
+            $("#contenu li").click(function(){//quand je clique sur le li, je lance une fonction
+				var texte=$(this).children('p');//je crée une variable : récupérer le paragraphe enfant de li
+				var signe=$(this).children('span');
+				$('#contenu li p').slideUp();//je ferme les paragraphes ouverts
+				$('#contenu li span').text('+');
+				if (texte.is(':hidden')){//si le texte est caché
+					texte.slideDown(500);//alors le faire descendre en 500millisec
+					signe.text('-');// recupere le span enfant de ce li et transforme le + en -
+				}
+			});	
+		});             
+    </script>
+</head>
+<body>
+	<div id="content">
+        <ul id="contenu">
+            <li>
+                <h2>Contenu 1</h2>
+                <span>+</span>
+                <p>Duis aute irure dolor. </p>
+            </li>
+            <li>
+				<h2>Contenu 2</h2>
+                <span>+</span>
+                <p> In reprehenderit in voluptate sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor ut enim ad minim veniam. Eu fugiat nulla pariatur. Velit esse cillum dolore ut labore et dolore magna aliqua. Excepteur sint occaecat sunt in culpa duis aute irure dolor. Ut aliquip ex ea commodo consequat. Mollit anim id est laborum. Lorem ipsum dolor sit amet, ullamco laboris nisi in reprehenderit in voluptate. Ut enim ad minim veniam, ut labore et dolore magna aliqua. Duis aute irure dolor consectetur adipisicing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet. Ut labore et dolore magna aliqua. Ut aliquip ex ea commodo consequat. </p>
+            </li>
+            <li>
+                <h2>Contenu 3</h2>
+                <span>+</span>
+                <p>Pullamco laboris nisi ut labore et dolore magna aliqua. Duis aute irure dolor sed do eiusmod tempor incididunt excepteur sint occaecat. Mollit anim id est laborum. Cupidatat non proident, ut aliquip ex ea commodo consequat. Ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, mollit anim id est laborum.</p>
+            </li>
+        </ul>
+	</div>
+</body>
+</html>
